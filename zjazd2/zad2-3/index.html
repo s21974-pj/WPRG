@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Zadanie 2a</title>
+	<style>
+	.inline-label {
+		display: inline;
+		margin-top: 10px;
+	}
+	
+	fieldset {
+		display: inline;
+	}
+	
+	label {
+		display: block;
+		margin-top: 10px;
+	}
+	
+	#submit {
+		display: block;
+		margin-top: 25px;
+	}
+	</style>
+</head>
+<body>
+	<form method="POST" action="zad2b-3.php">		
+		<h2>Hotel reservation form</h2>
+		<fieldset>
+			<legend>Personalia</legend>
+				<div>
+					<label for = "name1">Name</label>
+					<input type = "text" id = "name1" name = "name1" required>
+				</div>
+				
+				<div>
+					<label for = "surname1">Surname</label>
+					<input type = "text" id = "surname1" name = "surname1" required>
+				</div>
+				
+				<div>
+					<label for = "email1">Email</label>
+					<input type = "email" id = "email1" name = "email1" required>
+				</div>
+				
+				<div>
+					<label for = "address">Address</label>
+					<input type = "text" id = "address" name = "address" required>
+				</div>
+		</fieldset>
+				
+		<fieldset>
+			<legend>Payment</legend>
+				<div>
+					<label for = "cardname">Name on card</label>
+					<input type = "text" id = "cardname" name = "cardname" required>
+				</div>
+		
+				<div>
+					<label for = "cardnumber">Credit card number</label>
+					<input type = "text" id = "cardnumber" name = "cardnumber" pattern = "[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}" title = "ex. 0000 1111 2222 3333" required>
+				</div>
+		
+				<div>
+					<label for = "cardCVV">CVV</label>
+					<input type = "text" id = "cardCVV" name = "cardCVV" pattern = "[0-9]{3}" title = "ex. 123" required>
+				</div>
+				
+				<div>
+					<label for = "cardexpire">Expire date</label>
+					<input type = "text" id = "cardexpire" name = "cardexpire" pattern = "[0-1][0-9]/2[4-9]" title = "ex. 12/26" required>
+				</div>				
+		</fieldset>		
+		
+		<fieldset>
+			<legend>Reservation details</legend>			
+				<div>
+					<label for = "checkin">Check-in date</label>
+					<input type = "date" id = "checkin" name = "checkin" required>
+				</div>
+		
+				<div>
+					<label for = "checkout">Check-out date</label>
+					<input type = "date" id = "checkout" name = "checkout" required>
+				</div>
+				
+				<div>
+					<label for = "quantity">How many people in this reservation?</label>
+					<select id = "quantity" name="quantity">				
+						<option value = "1">1</option>
+						<option value = "2">2</option>
+						<option value = "3">3</option>
+						<option value = "4">4</option>
+					</select>
+				</div>				
+		</fieldset>
+		
+		<fieldset>
+			<legend>Extras</legend>				
+				<div>
+					<label for="extras1" class = "inline-label">I need extra bed for child</label>
+					<input type="checkbox" id="extras1" name="extras1" value="bed for child">
+				</div>
+				<div>
+					<label for="extras2" class = "inline-label">I want air conditioning</label>
+					<input type="checkbox" id="extras2" name="extras2" value="air conditioning">
+				</div>
+				<div>
+					<label for="extras1" class = "inline-label">I need an ashtray</label>
+					<input type="checkbox" id="extras3" name="extras3" value="ashtray">
+				</div>
+		</fieldset>
+		
+		<input type="submit" name="submit" id="submit" value="Submit">
+		
+	</form>
+</body>
+</html>
