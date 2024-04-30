@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Zadanie 1</title>
+	<style>
+	.inline-label {
+		display: inline;
+		margin-top: 10px;
+	}
+	
+	fieldset {
+		display: inline;
+	}
+	
+	label {
+		display: block;
+		margin-top: 10px;
+	}
+	
+	#submit {
+		display: block;
+		margin-top: 25px;
+	}
+	</style>
+</head>
+<body>
+	<form method="GET" action="zad1.php">						
+	
+		<fieldset>
+			<legend>Select your birth date</legend>			
+				<div>
+					<label for = "birthdate">Birth date</label>
+					<input type = "date" id = "birthdate" name = "birthdate" required>
+				</div>				
+		</fieldset>
+			
+		<input type="submit" name="submit" id="submit" value="Submit">
+				
+	</form>
+</body>
+</html>
