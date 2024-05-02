@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Zadanie 3</title>
+	<style>
+	.inline-label {
+		display: inline;
+		margin-top: 10px;
+	}
+	
+	fieldset {
+		display: inline;
+	}
+	
+	label {
+		display: block;
+		margin-top: 10px;
+	}
+	
+	#submit {
+		display: block;
+		margin-top: 25px;
+	}
+	</style>
+</head>
+<body>
+	<form method="GET" action="zad3.php">						
+	
+		<fieldset>
+			<legend>File operations</legend>			
+				<div>
+					<label for = "dir">directory name</label>
+					<input type = "text" id = "dir" name = "dir" required>
+				</div>							
+			<fieldset>
+			<legend>Operation</legend>				
+				<div>
+					<input type = "radio" name = "action" value = "read" checked = "checked"/>read
+				</div>
+				<div>
+					<input type = "radio" name = "action" value = "delete"/>delete
+				</div>
+				<div>
+					<input type = "radio" name = "action" value = "create"/>create
+				</div>
+			</fieldset>
+		
+		
+		<input type="submit" name="submit" id="submit" value="Submit">
+				
+	</form>
+</body>
+</html>
