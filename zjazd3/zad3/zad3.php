@@ -1,14 +1,20 @@
 <?php
 
-	function readDirectory($dir){
-		
-		if(strpos(getcwd(), "\\") !== FALSE) {
-			$path = getcwd()."\\";
+	function readDirectory($pathForm, $dir){
+		$lastChar = substr($pathForm, -1);
+
+		if(strcmp($lastChar, "\/") == 0 || strcmp($lastChar, "\\") == 0){
+			$path = $pathForm;
 		}else{
-			$path = getcwd()."\/";
+			
+			if(strpos($pathForm, "\\") !== FALSE) {
+				$path = $pathForm."\\";
+			}else{
+				$path = $pathForm."/";
+			}
 		}
 		
-		$path = $path.$dir;
+		$path = $path.$dir;		
 			
 		if(file_exists($path)){
 			
@@ -43,15 +49,23 @@
 	
 	
 	
-	function deleteDirectory($dir){
-			
-		if(strpos(getcwd(), "\\") !== FALSE) {
-			$path = getcwd()."\\";
+	function deleteDirectory($pathForm, $dir){
+		
+		$lastChar = substr($pathForm, -1);
+
+		if(strcmp($lastChar, "\/") == 0 || strcmp($lastChar, "\\") == 0){
+			$path = $pathForm;
 		}else{
-			$path = getcwd()."\/";
+			
+			if(strpos($pathForm, "\\") !== FALSE) {
+				$path = $pathForm."\\";
+			}else{
+				$path = $pathForm."/";
+			}
 		}
 		
 		$path = $path.$dir;
+		
 		
 		if(file_exists($path)){
 			
@@ -94,22 +108,34 @@
 	
 	
 	
-	function createDirectory($dir){
-			
-		if(strpos(getcwd(), "\\") !== FALSE) {
-			$path = getcwd()."\\";
+	function createDirectory($pathForm, $dir){
+		
+		$lastChar = substr($pathForm, -1);
+
+		if(strcmp($lastChar, "\/") == 0 || strcmp($lastChar, "\\") == 0){
+			$path = $pathForm;
 		}else{
-			$path = getcwd()."\/";
+			
+			if(strpos($pathForm, "\\") !== FALSE) {
+				$path = $pathForm."\\";
+			}else{
+				$path = $pathForm."/";
+			}
 		}
+		
+		$mainPath = $path;
 		
 		$path = $path.$dir;
 		
 		if(file_exists($path)){			
 				echo("Directory <strong>$dir</strong> already exist!");
 		}else{
-			
-			mkdir($path);
-			echo("Directory <strong>$dir</strong> was created!");
+			if(!file_exists($mainPath)){
+				echo("Incorrect path(<strong>$mainPath</strong>)! Try again!");
+			}else{				
+				mkdir($path);
+				echo("Directory <strong>$dir</strong> was created!");
+			}
 		}		
 	}
 	
@@ -120,15 +146,15 @@
 		switch($_GET["action"]){
 			
 			case "read":
-				readDirectory($_GET["dir"]);
+				readDirectory($_GET["path"], $_GET["dir"]);
 				break;
 			
 			case "delete":
-				deleteDirectory($_GET["dir"]);
+				deleteDirectory($_GET["path"], $_GET["dir"]);
 				break;
 			
 			case "create":
-				createDirectory($_GET["dir"]);
+				createDirectory($_GET["path"], $_GET["dir"]);
 				break;
 				
 			default:
