@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login</title>
+	<style>
+	.inline-label {
+		display: inline;
+		margin-top: 10px;
+	}
+	
+	fieldset {
+		display: inline;
+	}
+	
+	label {
+		display: block;
+		margin-top: 10px;
+	}
+	
+	#submit {
+		display: block;
+		margin-top: 25px;
+	}
+	</style>
+</head>
+<body>
+	<form method="POST" action="login.php">		
+		
+		<fieldset>
+			<legend>Please login</legend>
+				<div>
+					<label for = "username">Username</label>
+					<input type = "text" id = "username" name = "username" required>
+				</div>				
+				<div>
+					<label for = "password">Password</label>
+					<input type = "password" id = "password" name = "password" required>
+				</div>
+		</fieldset>
+		
+		<input type="submit" name="submit" id="submit" value="Submit">
+		
+	</form>
+</body>
+</html>
